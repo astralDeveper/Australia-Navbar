@@ -1,0 +1,392 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    /* min-height: 100%;
+    min-width: 100%;
+    max-width: 100vw; */
+    background-color: #8799a7;
+    overflow-x: hidden;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: white;
+    padding: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 7%;
+    padding-right: 7%;
+    z-index: 100;
+}
+
+.main-buttons {
+    position: relative;
+    z-index: 101;
+}
+
+.heads {
+    font-size: large;
+    cursor: pointer;
+    color: #1f5877;
+}
+
+.nav .main-nav-btns .dropdown {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.down-icon {
+    font-size: 15px;
+}
+
+.dropdown-content-Inspired,
+.dropdown-content-Places,
+.dropdown-content-Things,
+.dropdown-content-Plan {
+    display: none;
+    overflow: hidden;
+    background-color: #ededee;
+    margin-top: 74px;
+    font-size: x-large;
+    min-height: 80vh;
+    transition: max-height 0.3s ease-in-out;
+    padding: 4% 4% 2% 4%;
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+}
+
+.card-div {
+    background-color: #fff;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    border-radius: 18px;
+    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.151);
+    transition: 800ms;
+}
+
+.card-div img {
+    width: 250px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+
+.card-div p {
+    text-align: center;
+    padding: 15px;
+}
+
+.card-div:hover {
+    transform: scale(1.1);
+}
+
+.icons-btn {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.flex-div {
+    display: flex;
+    gap: 35px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.flex-div2{
+    display: flex;
+    flex-direction: column;
+}
+.responsive-btns{
+    /* display: none; */
+    overflow-x: hidden;
+    background-color: #ededee;
+    margin-top: 74px;
+    font-size: x-large;
+    min-height: 80vh;
+    transition: max-height 0.3s ease-in-out;
+    padding: 5% 5% 4% 5%;
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+}
+
+.hamburger-logo {
+    display: none;
+    cursor: pointer;
+}
+
+.close-icon {
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .nav .main-nav-btns {
+        display: none;
+    }
+
+    .search-icon-hidden {
+        display: none;
+    }
+
+    .hamburger-logo {
+        display: block;
+    }
+
+    .close-icon {
+        display: none;
+    }
+
+    .main-nav-btns.mobile-visible {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        padding: 10px;
+        z-index: 100;
+    }
+}
+
+#responsiveMenu {
+    display: none;
+}
+
+.heads-div button{
+    background-color: transparent;
+    border: none;
+    font-size: 1.4rem;
+    color: #1f5877;
+}
+.heads-div{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: start;
+    align-items: start;
+    margin-top: 4rem;
+}
+
+.navigation-screen {
+    position: fixed;
+    width: 100vw;
+    min-height: 100vh;
+    top: 74px;
+    left: 0;
+    background-color: #ededee;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: 150ms all;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.navigation-screen > div {
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.search-input {
+    padding: 1.2rem;
+    outline: none;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: large;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tabs-container {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: center;
+
+}
+
+
+
+.tabs {
+    display: flex;
+    background-color: #ededee;
+    font-size: 15px;
+    font-weight: 400;
+    align-items: center;
+    padding: 10px 10px;
+    white-space: nowrap;
+    overflow-x: auto;
+    gap: 15px;
+    /* margin: 0 30px; */
+    
+}
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+}
+
+.tab:hover {
+  color: #0073e6;
+}
+
+.tab.active {
+  border-radius: 100px;
+
+  font-weight: bold;
+  color: #08476a;
+  background-color: #fff;
+  box-shadow: 4px 4px 5px 1px rgba(151, 151, 151, 0.349);
+}
+
+
+.tab-content {
+    /* height: auto; */
+  padding: 20px;
+  /* overflow: auto; */
+  /* background-color: #f2f2f2; */
+  margin-top: 10px;
+}
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+  /* overflow: hidden; */
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card p {
+  padding: 10px;
+  font-weight: bold;
+  color: #0056b3;
+}
+
+.backpackimg{
+    width: 30vw;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.backpack{
+    background-color: white;
+    width: 250px;
+    height: auto;
+    border-radius: 15px;
+  
+}
+.backpack h1{
+    font-size: 14px;
+    text-align: center;
+    margin-top: 15px;
+    color: #0056b3;
+    padding-bottom: 30px;
+}
+
+.tabs-navigation{
+    display: none;
+    
+}
+
+
+
+
+@media only screen and (max-width: 740px) {
+    .tabs {
+        justify-content: flex-start;
+        overflow-x: scroll;
+        width: 100%;
+        padding-inline: 3rem;
+    }
+}
+
+
+@media only screen and (max-width: 783px) {
+    .tabs-navigation {
+        display: block;
+        position: relative;
+        top: 0;
+        right: 0;
+        height: 100%;
+        border-right: 5px solid black;
+        
+       
+    }
+    .prev{
+        position: absolute;
+        top: -60px;
+        left:0;
+        padding-top: 10px;
+        /* background-color: white; */
+
+    }
+    .next{
+      position: absolute;
+      top: -60px;
+      right:0;
+      padding-top: 10px; 
+      /* background-color: white; */
+    }
+    
+    .nav-btn {
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        height: 67px;
+        padding: 10px;
+        /* background-color: white; */
+        margin-top: 5.5rem;
+
+    }
+    .nav-btn:hover {
+        color: #0073e6;
+    }
+
+}
