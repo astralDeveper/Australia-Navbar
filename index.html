@@ -1,160 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+  function toggleSearchInput() {
+    // console.log("chal raha he");
+    const searchInput = document.getElementById('searchInput');
+    const closeIconSearch = document.getElementById('closeIcon-search');
+    if (searchInput.style.display === '' || searchInput.style.display === 'none') {
+      searchInput.style.display = 'block';
+    } else {
+      searchInput.style.display = 'none';
+    }
+
+  }
+
+  function closeSearchModal() {
+    if (searchInput.style.display === '' || searchInput.style.display === 'block') {
+      searchInput.style.display = 'none'
+    }
+  }
+</script>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Responsive Navbar</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> -->
 </head>
 
 <body>
-  <nav class="nav" style="z-index: -1;">
-    <img class="hamburger-logo" id="hamburgerIcon" src="./assets/hamburger-logo.svg" alt="hamburger">
-
+  <nav class="nav">
+    <img class="hamburger-logo" id="hamburgerIcon" src="./assets/menu-outline.svg" width="30px" alt="hamburger">
     <img class="close-icon" id="closeIcon" src="./assets/dt-icon-close.svg" alt="close" style="display: none;">
-    <p id="backBtn" style="display: none; cursor: pointer; font-size: large; font-weight: 600; color: #08476a;">
+    <p id="backBtn" style="display: none; cursor: pointer;">
       < Back</p>
-        <img width="130" src="./assets/logo.svg" alt="logo">
+        <img width="130" src="./assets/logo.svg" alt="logo" style="cursor: pointer;">
         <div class="main-nav-btns">
           <div class="dropdown">
-            <p class="heads" id="inspiredBtn">Be Inspired <img src="./assets/dt-icon-chevron-down.svg"
-                class="arrow-up-nav inspiredBtn " alt="down"></p>
-            <p class="heads" id="placesBtn">Places to go <img src="./assets/dt-icon-chevron-down.svg"
-                class="arrow-up-nav" alt="down"></p>
-            <p class="heads" id="thingsBtn">Things to do <img src="./assets/dt-icon-chevron-down.svg"
-                class="arrow-up-nav" alt="down"></p>
-            <p class="heads" id="planBtn">Plan your trip <img src="./assets/dt-icon-chevron-down.svg"
-                class="arrow-up-nav" alt="down"></p>
+            <p class="heads" id="inspiredBtn">Be Inspired <img src="./assets/dt-icon-chevron-down.svg" class="down-icon"
+                alt="down"></p>
+            <p class="heads" id="placesBtn">Places to go <img src="./assets/dt-icon-chevron-down.svg" class="down-icon"
+                alt="down"></p>
+            <p class="heads" id="thingsBtn">Things to do <img src="./assets/dt-icon-chevron-down.svg" class="down-icon"
+                alt="down"></p>
+            <p class="heads" id="planBtn">Plan your trip <img src="./assets/dt-icon-chevron-down.svg" class="down-icon"
+                alt="down"></p>
           </div>
         </div>
-        <div class="icons-btn ">
-          <img class="search-icon-hidden" src="./assets/dt-icon-map.svg" alt="icons">
-          <img class="search-icon-hidden" src="./assets/heart.png" alt="icons">
-          <img src="./assets/dt-icon-search.svg" alt="icons" style="cursor: pointer;" class="open-modal-btn">
+        <!-- <div class="icons-btn ">
+      <img class="search-icon-hidden" style="display: none;" src="./assets/dt-icon-map.svg" alt="icons">
+      <img class="search-icon-hidden" style="display: none;" src="./assets/dt-icon-heart.svg" alt="icons">
+      <img  src="./assets/dt-icon-search.svg" alt="icons">
+    </div> -->
+        <div style="cursor: pointer;" onclick="toggleSearchInput()">
+          <img src="./assets/dt-icon-search.svg" alt="icons">
         </div>
 
-        <!-- modal start -->
-        <div class="modal-overlay hide">
-          <div class="modal-wrapper">
-            <div class="close-btn-wrapper">
-              <button class="close-modal-btn">
-                <img src="./assets/Responsive Navbar_files/dt-icon-close.svg" style="width: 100%;" alt="">
-              </button>
-            </div>
-            <div class="searc-inputdeks-main">
-              <div class="input-searchbar-wrapper">
-                <div>
-                  <img src="./assets/dt-icon-search.svg" alt="">
-                </div>
-                <input type="text" class="search-inputdeks" placeholder="Search">
-              </div>
+        <div class="search-input-modal" id="searchInput" style=" display: none; transition: 300ms;">
+          <div class="close-icon-right">
+            <div class="close-icon-search" style="cursor: pointer;" id="closeIcon-search">
+              <img onclick="closeSearchModal()" src="./assets/dt-icon-close.svg" alt="close">
             </div>
           </div>
+          <div class="search-input-center">
+            <div class="search-input">
+              <input type="text" class="" placeholder="Search "><img width="20px" src="./assets/dt-icon-search.svg"
+                alt="icons">
+            </div>
+          </div>
+
         </div>
-        <!-- modal end -->
+
   </nav>
-
-
 
   <div class="responsive-btns " id="responsiveMenu">
     <div class="flex-div2 ">
 
-
-      <a href="#" id="mySizeChart" style="text-decoration: none;">
-        <div class="searc-inputdeks-mains">
-          <div class="input-searchbar-wrappers">
-            <div>
-              <img src="./assets/dt-icon-search.svg" style="width: 50%;margin-left: 20px;margin-top: 10px;" alt="">
-            </div>
-            <input type="text" class="search-input" readonly aria-disabled="" placeholder="Search">
-          </div>
-        </div>
-      </a>
-
-
-
-      <div id="mySizeChartModal" class="ebcf_modal">
-
-        <div class="ebcf_modal-content">
-
-          <span class="ebcf_close " id="closeIcon">&times;</span>
-
-          <div class="searc-inputdeks-mains">
-            <div class="input-searchbar-wrappers">
-              <div>
-                <img src="./assets/dt-icon-search.svg" style="width: 50%;margin-left: 20px;margin-top: 10px;" alt="">
-              </div>
-              <input type="text" class="search-input  " placeholder="Search">
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-
-
+      <!-- <div class="search-input">
+        <input type="text" class="" placeholder="Search "><img width="20px" src="./assets/dt-icon-search.svg" alt="icons">
+      </div> -->
       <div class="heads-div">
-        <button data-btn-nav="Be Inspired">Be Inspired</button>
-        <button data-btn-nav="Places to go">Places to go</button>
-        <button data-btn-nav="Things to do">Things to do</button>
-        <button data-btn-nav="Plan your trip">Plan your trip</button>
+        <button data-btn-nav="Be Inspired">Be Inspired <img data-btn-nav="Be Inspired"
+            src="./assets/dt-icon-chevron-right.svg" alt="right arrow"></button>
+        <button data-btn-nav="Places to go">Places to go <img data-btn-nav="Places to go"
+            src="./assets/dt-icon-chevron-right.svg" alt="right arrow"></button>
+        <button data-btn-nav="Things to do">Things to do <img data-btn-nav="Things to do"
+            src="./assets/dt-icon-chevron-right.svg" alt="right arrow"></button>
+        <button data-btn-nav="Plan your trip">Plan your trip <img data-btn-nav="Plan your trip"
+            src="./assets/dt-icon-chevron-right.svg" alt="right arrow"></button>
+        <!-- <a style="text-decoration: none;" href="https://www.australia.com/en/explore.html"><button data-btn-nav="Explore">Explore</button></a> -->
+
       </div>
       <!-- More card-divs as needed -->
     </div>
   </div>
 
+
+
+
   <div class="navigation-screen">
     <div data-nav="Be Inspired" style="display:none;">
 
       <div class="cards">
-        <div class="flex-div ">
-          <div class="card-div">
-            <img src="./assets/cards/be inspired/1.webp" alt="card image">
-            <p>Australia Recommends 2024</p>
+
+        <a href="https://www.australia.com/en/travel-inspiration/australia-recommends-best-places-to-visit.html"
+          style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/be inspired/1.webp" alt="card image">
+              <span class="p-link">Australia Recommends...</span>
+            </div>
           </div>
-        </div>
-        <div class="flex-div ">
-          <div class="card-div">
-            <img src="./assets/cards/be inspired/2.webp" alt="card image">
-            <p>Come and Say G'day</p>
+        </a>
+
+        <a href="https://www.australia.com/en/travel-inspiration.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/be inspired/2.webp" alt="card image">
+              <span class="p-link">Come and Say G'day</span>
+            </div>
           </div>
-        </div>
-        <div class="flex-div ">
-          <div class="card-div">
-            <img src="./assets/cards/be inspired/3.webp" alt="card image">
-            <p>G'day, the short film</p>
+        </a>
+
+        <a href="https://www.australia.com/en/gday-the-short-film.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/be inspired/3.webp" alt="card image">
+              <span class="p-link">G'day, the short film</span>
+            </div>
           </div>
-        </div>
-        <div class="flex-div ">
-          <div class="card-div">
-            <img src="./assets/cards/be inspired/4.webp" alt="card image">
-            <p>Discover your Australia</p>
+        </a>
+
+        <a href="https://www.australia.com/en/discover-your-australia.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/be inspired/4.webp" alt="card image">
+              <span class="p-link">Discover your
+                Australia</span>
+            </div>
           </div>
-        </div>
-        <div class="flex-div ">
-          <div class="card-div">
-            <img src="./assets/cards/be inspired/5.webp" alt="card image">
-            <p>Travel Videos</p>
+        </a>
+
+        <a href="https://www.australia.com/en/travel-inspiration/australia-travel-videos.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/be inspired/5.webp" alt="card image">
+              <span class="p-link">Travel
+                Videos</span>
+            </div>
           </div>
-        </div>
-        <div class="flex-div ">
-          <div class="card-div">
-            <img src="./assets/cards/be inspired/6.webp" alt="card image">
-            <p>Deals and offers</p>
+        </a>
+
+        <a href="https://www.australia.com/en/deals-and-travel-packages.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/be inspired/6.webp" alt="card image">
+              <span class="p-link">Deals and offers</span>
+            </div>
           </div>
-        </div>
+        </a>
+
+
       </div>
     </div>
+
+
+
 
     <div data-nav="Places to go" style="display: none;">
       <div class="tabs-container">
         <button class="nav-btn prev" onclick="scrollTabs('left')">&lt;</button>
 
         <div class="tabs">
-          <div class="tab active" onclick="selectTab(event, 'cities')">Cities</div>
+          <div class="tab" onclick="selectTab(event, 'cities')">Cities</div>
           <div class="tab" onclick="selectTab(event, 'states')">States</div>
           <div class="tab" onclick="selectTab(event, 'beaches')">Beaches</div>
           <div class="tab" onclick="selectTab(event, 'islands')">Islands</div>
@@ -169,333 +187,755 @@
         </div> -->
       </div>
 
-      <div class="tab-content" id="cities">
+      <div class="tab-content" id="cities" style="display:none;">
         <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/cities/1.webp" alt="card image">
-              <p>Sydney</p>
-            </div>
-          </div>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/cities/2.webp" alt="card image">
-              <p>Melbourne</p>
+          <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-sydney.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/1.webp" alt="card image">
+                <span class="p-link">Sydney</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/cities/3.webp" alt="card image">
-              <p>Brisbane</p>
+          <a href="https://www.australia.com/en/places/melbourne-and-surrounds/guide-to-melbourne.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/2.webp" alt="card image">
+                <span class="p-link">Melbourne</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/cities/4.webp" alt="card image">
-              <p>Perth</p>
+          <a href="https://www.australia.com/en/places/brisbane-and-surrounds/guide-to-brisbane.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/3.webp" alt="card image">
+                <span class="p-link">Brisbane</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/cities/5.webp" alt="card image">
-              <p>Gold Coast</p>
+          <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-perth.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/4.webp" alt="card image">
+                <span class="p-link">Perth</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/cities/6.webp" alt="card image">
-              <p>Adelaide</p>
+          <a href="https://www.australia.com/en/places/gold-coast-and-surrounds/guide-to-the-gold-coast.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/5.webp" alt="card image">
+                <span class="p-link">Gold Coast</span>
+              </div>
             </div>
-          </div>
+          </a>
+
+
+          <a href="https://www.australia.com/en/places/adelaide-and-surrounds/guide-to-adelaide.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/6.webp" alt="card image">
+                <span class="p-link">Adelaide</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/cairns-and-surrounds/guide-to-cairns.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/7.webp" alt="card image">
+                <span class="p-link">Cairns</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/darwin-and-surrounds/guide-to-darwin.htmlhttps://www.australia.com/en/places/hobart-and-surrounds/guide-to-hobart.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/8.webp" alt="card image">
+                <span class="p-link">Drawin</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/hobart-and-surrounds/guide-to-hobart.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/9.webp" alt="card image">
+                <span class="p-link">Hobart</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/canberra-and-surrounds/guide-to-canberra.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/10.webp" alt="card image">
+                <span class="p-link">Canberra</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <span class="card-div" style="justify-content: center;">
+                <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                    alt="card image"></div>
+                <p>View more</p>
+              </span>
+            </div>
+          </a>
+
         </div>
       </div>
 
       <div class="tab-content" id="states" style="display:none;">
         <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/states/1.webp" alt="card image">
-              <p>Australian Capital Territory</p>
-            </div>
-          </div>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/states/2.webp" alt="card image">
-              <p>New South Wales</p>
+          <a href="https://www.australia.com/en/places/australian-capital-territory.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/1.webp" alt="card image">
+                <span class="p-link">Australian
+                  Capital...</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/states/3.webp" alt="card image">
-              <p>Northern Territory</p>
+          <a href="https://www.australia.com/en/places/new-south-wales.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/2.webp" alt="card image">
+                <span class="p-link">New South Wales</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/states/4.webp" alt="card image">
-              <p>Queensland</p>
+          <a href="https://www.australia.com/en/places/northern-territory.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/3.webp" alt="card image">
+                <span class="p-link">Northern
+                  Territory</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/states/5.webp" alt="card image">
-              <p>South Australia</p>
+          <a href="https://www.australia.com/en/places/queensland.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/4.webp" alt="card image">
+                <span class="p-link">Queensland</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/states/6.webp" alt="card image">
-              <p>Tasmania</p>
+          <a href="https://www.australia.com/en/places/south-australia.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/5.webp" alt="card image">
+                <span class="p-link">South Australia</span>
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/tasmania.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/6.webp" alt="card image">
+                <span class="p-link">Tasmania</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/victoria.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/7.webp" alt="card image">
+                <span class="p-link">Victoria</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/western-australia.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/8.webp" alt="card image">
+                <span class="p-link">Western Australia</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/external-territories.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/9.webp" alt="card image">
+                <span class="p-link">External
+                  Territories</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <span class="card-div" style="justify-content: center;">
+                <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                    alt="card image">
+                </div>
+                <p>View more</p>
+              </span>
+            </div>
+          </a>
+
         </div>
       </div>
 
 
       <div class="tab-content" id="beaches" style="display:none;">
         <div class="cards">
+
+          <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-bondi.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/1.webp" alt="card image">
+                <span class="p-link">Bondi</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-bondi.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/2.webp" alt="card image">
+                <span class="p-link">The
+                  Whitsundays</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-esperance.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/3.webp" alt="card image">
+                <span class="p-link">Esperance</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/melbourne-and-surrounds/guide-to-the-mornington-peninsula.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/4.webp" alt="card image">
+                <span class="p-link">Mornington Peninsula</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/brisbane-and-surrounds/guide-to-noosa.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/5.webp" alt="card image">
+                <span class="p-link">Noosa</sp>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/canberra-and-surrounds/guide-to-jervis-bay.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/6.webp" alt="card image">
+                <span class="p-link">Jervis Bay</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/cairns-and-surrounds/guide-to-port-douglas.html"    style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
-              <img src="./assets/cards/places to go/beaches/1.webp" alt="card image">
-              <p>Bondi</p>
+              <img src="./assets/cards/places to go/beaches/7.webp" alt="card image">
+              <span class="p-link">Port Douglas</span>
             </div>
           </div>
+        </a>
+
+        <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-byron-bay.html"  style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/beaches/8.webp" alt="card image">
+              <span class="p-link">Byron Bay</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-ningaloo-reef.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/beaches/9.webp" alt="card image">
+              <span class="p-link">Ningaloo Reef</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.australia.com/en/places/whitsundays-and-surrounds/guide-to-airlie-beach.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/beaches/10.webp" alt="card image">
+              <span class="p-link">Airlie Beach</span>
+            </div>
+          </div>
+        </a>
+        
+        <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
 
           <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/beaches/2.webp" alt="card image">
-              <p>The Whitsundays</p>
-            </div>
-          </div>
+            <a class="card-div" style="justify-content: center;">
+              <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                  alt="card image"></div>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/beaches/3.webp" alt="card image">
-              <p>Esperance</p>
-            </div>
+              <p>View more</p>
+            </a>
           </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/beaches/4.webp" alt="card image">
-              <p>Mornington Peninsula</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/beaches/5.webp" alt="card image">
-              <p>Noosa</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/beaches/6.webp" alt="card image">
-              <p>Jervis Bay</p>
-            </div>
-          </div>
+          </a>
         </div>
       </div>
 
 
       <div class="tab-content" id="islands" style="display:none;">
         <div class="cards">
+
+        <a href="https://www.australia.com/en/places/adelaide-and-surrounds/guide-to-kangaroo-island.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/islands/1.webp" alt="card image">
-              <p>Kangaroo Island</p>
+              <span class="p-link">Kangaroo Island</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-rottnest-island.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/islands/2.webp" alt="card image">
-              <p>Rottnest Island</p>
+              <span class="p-link">Rottnest Island</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/brisbane-and-surrounds/guide-to-kgari.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/islands/3.webp" alt="card image">
-              <p>K’gari</p>
+              <span class="p-link">K’gari</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/whitsundays-and-surrounds/guide-to-hamilton-island.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/islands/4.webp" alt="card image">
-              <p>Hamilton Island</p>
+              <span 
+                class="p-link">Hamilton Island</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-lord-howe-island.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/islands/5.webp" alt="card image">
-              <p>Lord Howe Island</p>
+              <span class="p-link">Lord Howe Island</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/darwin-and-surrounds/guide-to-the-tiwi-islands.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/islands/6.webp" alt="card image">
-              <p>Tiwi Islands</p>
+              <span  class="p-link">Tiwi Islands</span>
             </div>
           </div>
+        </a>
+
+        <a href="https://www.australia.com/en/places/melbourne-and-surrounds/guide-to-phillip-island.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/islands/7.webp" alt="card image">
+              <span 
+                class="p-link">Phillip Island</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.australia.com/en/places/whitsundays-and-surrounds/guide-to-the-whitsundays.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/islands/8.webp" alt="card image">
+              <span 
+                class="p-link">The Whitsundays</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.australia.com/en/places/hobart-and-surrounds/guide-to-bruny-island.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/islands/9.webp" alt="card image">
+              <span class="p-link">Bruny Island</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+
+          <div class="flex-div ">
+            <a class="card-div" style="justify-content: center;">
+              <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                  alt="card image"></div>
+
+              <p>View more</p>
+            </a>
+          </div>
+          </a>
         </div>
       </div>
 
 
       <div class="tab-content" id="country" style="display:none;">
         <div class="cards">
+          <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-margaret-river.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/country/1.webp" alt="card image">
-              <p>Margaret River</p>
+              <span class="p-link">Margaret River</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/adelaide-and-surrounds/guide-to-the-barossa-valley.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/country/2.webp" alt="card image">
-              <p>Barossa Valley</p>
+              <span 
+                class="p-link">Barossa Valley</span>
             </div>
           </div>
+          </a>
 
+          <a href="https://www.australia.com/en/places/melbourne-and-surrounds/guide-to-the-grampians.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/country/3.webp" alt="card image">
-              <p>The Grampians</p>
+              <span 
+                class="p-link">The Grampians</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-the-hunter-valley.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/country/4.webp" alt="card image">
-              <p>Hunter Valley</p>
+              <span 
+                class="p-link">Hunter Valley</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/brisbane-and-surrounds/guide-to-bundaberg.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/country/5.webp" alt="card image">
-              <p>Bundaberg</p>
+              <span 
+                class="p-link">Bundaberg</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/melbourne-and-surrounds/guide-to-daylesford-and-the-macedon-ranges.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/country/6.webp" alt="card image">
-              <p>Daylesford</p>
+              <span  class="p-link">Daylesford</span>
             </div>
           </div>
+        </a>
+
+        <a href="https://www.australia.com/en/places/adelaide-and-surrounds/guide-to-mclaren-vale.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/country/7.webp" alt="card image">
+              <span
+                class="p-link">McLaren Vale</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.australia.com/en/places/brisbane-and-surrounds/guide-to-the-glass-house-mountains.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/country/8.webp" alt="card image">
+              <span
+                class="p-link">Glass House Mountains</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-mudgee.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/country/9.webp" alt="card image">
+              <span
+                class="p-link">Mudgee</span>
+            </div>
+          </div>
+        </a>
         </div>
       </div>
 
 
       <div class="tab-content" id="outback" style="display:none;">
         <div class="cards">
+          <a href="https://www.australia.com/en/places/alice-springs-and-surrounds/guide-to-alice-springs.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/outback/1.webp" alt="card image">
-              <p>Alice Springs</p>
+              <span
+                class="p-link">Alice Springs</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/broome-and-surrounds/guide-to-broome.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/outback/2.webp" alt="card image">
-              <p>Broome</p>
+              <span
+                class="p-link">Broome</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/alice-springs-and-surrounds/guide-to-uluru-and-kata-tjuta.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/outback/3.webp" alt="card image">
-              <p>Uluru and Kata Tjuta</p>
+              <span
+                class="p-link">Uluru and Kata Tjuta</span>
             </div>
           </div>
+        </a>
 
+
+<a href="https://www.australia.com/en/places/broome-and-surrounds/guide-to-the-kimberley.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/outback/4.webp" alt="card image">
-              <p>The Kimberley</p>
+              <span
+                class="p-link">The Kimberley</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/adelaide-and-surrounds/guide-to-the-flinders-ranges.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/outback/5.webp" alt="card image">
-              <p>Flinders Ranges</p>
+              <span"
+                class="p-link">Flinders Ranges</a>
             </div>
           </div>
+        </a>
 
+
+<a href="https://www.australia.com/en/places/darwin-and-surrounds/guide-to-kakadu-national-park.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/outback/6.webp" alt="card image">
-              <p>Kakadu National Park</p>
+              <span 
+                class="p-link">Kakadu National Park</sp>
             </div>
           </div>
+        </a>
+
+        <a href="https://www.australia.com/en/places/adelaide-and-surrounds/guide-to-the-eyre-peninsula.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/outback/7.webp" alt="card image">
+              <span
+                class="p-link">Eyre Peninsula</span>
+            </div>
+          </div>
+        </a>
+
+
+        <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-karijini-national-park.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/outback/8.webp" alt="card image">
+              <span 
+                class="p-link">Karijini National Park</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-monkey-mia.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/outback/9.webp" alt="card image">
+              <span
+                class="p-link">Monkey Mia</span>
+            </div>
+          </div>
+        </a>
         </div>
       </div>
 
 
       <div class="tab-content" id="nature" style="display:none;">
         <div class="cards">
+
+          <a href="https://www.australia.com/en/places/cairns-and-surrounds/guide-to-the-great-barrier-reef.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/nature/1.webp" alt="card image">
-              <p>Great Barrier Reef</p>
+              <span
+                class="p-link">Great Barrier Reef</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/cairns-and-surrounds/guide-to-the-great-barrier-reef.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/nature/2.webp" alt="card image">
-              <p>Kangaroo Island</p>
+              <span
+                class="p-link">Kangaroo Island</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-the-blue-mountains.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/nature/3.webp" alt="card image">
-              <p>Blue Mountains</p>
+              <span
+                class="p-link">Blue Mountains</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/cairns-and-surrounds/guide-to-the-daintree-rainforest.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/nature/4.webp" alt="card image">
-              <p>Daintree Rainforest</p>
+              <span
+                class="p-link">Daintree Rainforest</span>
             </div>
           </div>
+        </a>
 
+
+        <a href="https://www.australia.com/en/places/melbourne-and-surrounds/guide-to-the-great-ocean-road.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/nature/5.webp" alt="card image">
-              <p>Great Ocean Road</p>
+              <span
+                class="p-link">Great Ocean Road</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/places/gold-coast-and-surrounds/guide-to-the-scenic-rim.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/places to go/nature/6.webp" alt="card image">
-              <p>Scenic Rim</p>
+              <span 
+                class="p-link">Scenic Rim</span>
             </div>
           </div>
+        </a>
+
+
+        <a href="https://www.australia.com/en/places/broome-and-surrounds/guide-to-purnululu-national-park.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/nature/7.webp" alt="card image">
+              <span
+                class="p-link">Purnululu National Park</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.australia.com/en/places/hobart-and-surrounds/guide-to-cradle-mountain-lake-st-clair-national-park.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/nature/8.webp" alt="card image">
+              <span
+                class="p-link">Cradle MountainLake... </span>
+            </div>
+          </div>
+        </a>
+
+
+        <a href="https://www.australia.com/en/places/darwin-and-surrounds/guide-to-litchfield-national-park.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/nature/9.webp" alt="card image">
+              <span
+                class="p-link">Litchfield National Park</span>
+            </div>
+          </div>
+        </a>
+
+
+        <a href="https://www.australia.com/en/places/hobart-and-surrounds/guide-to-freycinet.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/places to go/nature/10.webp" alt="card image">
+              <span
+                class="p-link">Freycinet</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+
+          <div class="flex-div ">
+            <a class="card-div" style="justify-content: center;">
+              <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                  alt="card image"></div>
+
+              <p>View more</p>
+            </a>
+          </div>
+          </a>
         </div>
       </div>
     </div>
+
+
 
     <div data-nav="Things to do" style="display:none;">
       <div class="tabs-container">
@@ -518,59 +958,83 @@
 
       <div class="tab-content" id="culture2">
         <div class="cards">
+          <a href="https://www.australia.com/en/youth-travel/backpacking-in-australia.html" style="color: #08476a;"
+          style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/culture/1.webp" alt="card image">
-              <p>Aboriginal experiences</p>
+              <span 
+                class="p-link">Aboriginal experiences</span>
             </div>
           </div>
+        </a>
 
+
+        <a href="https://www.australia.com/en/things-to-do/arts-and-culture.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/culture/2.webp" alt="card image">
-              <p>Arts and culture</p>
+              <span class="p-link">Arts and
+                culture</span>
             </div>
           </div>
+        </a>
 
+
+        <a href="https://www.australia.com/en/events.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/culture/3.webp" alt="card image">
-              <p>Festivals and events</p>
+              <span class="p-link">Festivals and events</span>
             </div>
           </div>
+        </a>
 
+
+        <a href="https://www.australia.com/en/things-to-do/food-and-drinks.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/culture/4.webp" alt="card image">
-              <p>Food and drink</p>
+              <span class="p-link">Food and drink</span>
             </div>
           </div>
+        </a>
 
         </div>
       </div>
 
       <div class="tab-content" id="adventure2" style="display:none;">
         <div class="cards">
+
+          <a href="https://www.australia.com/en/things-to-do/adventure-and-sports.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/adventure/1.webp" alt="card image">
-              <p>Adventure and sports</p>
+              <span class="p-link">Adventure and
+                sports</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/things-to-do/walks-and-hikes.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/adventure/2.webp" alt="card image">
-              <p>Walks and hikes</p>
+              <span class="p-link">Walks and
+                hikes</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/trips-and-itineraries/self-drive-itineraries.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/adventure/3.webp" alt="card image">
-              <p>Road trips and drives</p>
+              <span
+                class="p-link">Road trips and drives</span>
             </div>
           </div>
+        </a>
 
         </div>
       </div>
@@ -578,53 +1042,70 @@
 
       <div class="tab-content" id="nature2" style="display:none;">
         <div class="cards">
+
+          <a href="https://www.australia.com/en/things-to-do/beaches-and-islands.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/nature/1.webp" alt="card image">
-              <p>Beaches and islands</p>
+              <span class="p-link">Beaches and
+                islands</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/things-to-do/nature-and-national-parks.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/nature/2.webp" alt="card image">
-              <p>Nature and national parks</p>
+              <span class="p-link">Nature
+                and national parks</span>
             </div>
           </div>
+        </a>
 
+
+        <a href="https://www.australia.com/en/things-to-do/wildlife.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/nature/3.webp" alt="card image">
-              <p>Wildlife</p>
+              <span class="p-link">Wildlife</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/things-to-do/sustainable-travel.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/nature/4.webp" alt="card image">
-              <p>Eco-friendly travel</p>
+              <span class="p-link">Eco-friendly
+                travel</span>
             </div>
           </div>
-
+        </a>
         </div>
       </div>
 
 
       <div class="tab-content" id="relaxation2" style="display:none;">
         <div class="cards">
+          <a href="https://www.australia.com/en/things-to-do/health-and-wellness-experiences.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/relaxation/1.webp" alt="card image">
-              <p>Health and wellness</p>
+              <span
+                class="p-link">Health and wellness</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/things-to-do/luxury.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/relaxation/2.webp" alt="card image">
-              <p>Luxury</p>
+              <span class="p-link">Luxury</span>
             </div>
           </div>
+        </a>
 
         </div>
       </div>
@@ -632,64 +1113,83 @@
 
       <div class="tab-content" id="family2" style="display:none;">
         <div class="cards">
+          <a href="https://www.australia.com/en/things-to-do/family.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/family/1.webp" alt="card image">
-              <p>Family travel</p>
+              <span class="p-link">Family travel</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/things-to-do/family/top-family-destinations-australia.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/family/2.webp" alt="card image">
-              <p>Family destinations</p>
+              <span
+                class="p-link">Family destinations</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/things-to-do/family/best-family-road-trips-in-australia.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/family/3.webp" alt="card image">
-              <p>Family road trips</p>
+              <span
+                class="p-link">Family road trips</span>
             </div>
           </div>
-
+        </a>
         </div>
       </div>
 
 
       <div class="tab-content" id="backpacking2" style="display:none;">
         <div class="cards">
+
+          <a href="https://www.australia.com/en/youth-travel/backpacking-in-australia.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/backpacking/1.webp" alt="card image">
-              <p>Backpacking</p>
+              <span
+                class="p-link">Backpacking</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/youth-travel/work-and-volunteer-in-australia.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/backpacking/2.webp" alt="card image">
-              <p>Work and holiday</p>
+              <span
+                class="p-link">Work and holiday</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/youth-travel/working-holiday-visa/faq.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/things to do/backpacking/3.webp" alt="card image">
-              <p>Visa FAQ</p>
+              <span class="p-link">Visa
+                FAQ</span>
             </div>
           </div>
-
+        </a>
         </div>
       </div>
     </div>
+
+
+
 
     <div data-nav="Plan your trip" style="display:none;">
       <div class="tabs-container">
         <button class="nav-btn prev" onclick="scrollTabs('left')">&lt;</button>
 
         <div class="tabs">
-          <div class="tab active" onclick="selectTab(event, 'planning-tools')">Planning tools</div>
+          <div class="tab" onclick="selectTab(event, 'planning-tools')">Planning tools</div>
           <div class="tab" onclick="selectTab(event, 'visas-and-entry')">Visas and entry</div>
           <div class="tab" onclick="selectTab(event, 'about-australia')">About australia</div>
           <div class="tab" onclick="selectTab(event, 'when-to-go')">When to go</div>
@@ -703,75 +1203,194 @@
         </div> -->
       </div>
 
-      <div class="tab-content" id="planning-tools">
+      <div class="tab-content" id="planning-tools" style="display:none;">
         <div class="cards">
+          <a href="https://www.australia.com/en/facts-and-planning/beginners-guide-to-australia.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/planning tools/1.webp" alt="card image">
-              <p>Beginner's guide</p>
+              <span
+                class="p-link">Beginner's guide</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/facts-and-planning/getting-around/accessible-travel-in-australia.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/planning tools/2.webp" alt="card image">
-              <p>Accessible travel</p>
+              <span
+                class="p-link">Accessible travel</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/facts-and-planning/getting-to-australia/australia-trip-planner-tools-and-tips.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/planning tools/3.webp" alt="card image">
-              <p>Planning tips</p>
+              <span
+                class="p-link">Planning tips</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/trip-planner.html"style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
-              <img src="./assets/cards/plan your trip/planning tools/4.webp" alt="card image">
-              <p>Trip planner</p>
+              <img src="./assets/cards/plan your trip/planning tools/4.webp" alt="card image" >
+              <span class="p-link">Trip planner</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/facts-and-planning/about-australia/australia-on-budget.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/planning tools/5.webp" alt="card image">
-              <p>Australian budget guide</p>
+              <span
+                class="p-link">Australian budget guide</span>
             </div>
           </div>
+        </a>
 
+
+        <a href="https://www.australia.com/en/trips-and-itineraries.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/planning tools/6.webp" alt="card image">
-              <p>Itinerary planner</p>
+              <span class="p-link">Itinerary planner</span>
             </div>
           </div>
+        </a>
+
+
+        <a href="https://www.australia.com/en/facts-and-planning/planning-tools/find-a-travel-agent.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/plan your trip/planning tools/7.webp" alt="card image">
+              <span
+                class="p-link">Find a travel agent</span>
+            </div>
+          </div>
+        </a>
+
+
+        <a href="https://www.australia.com/en/facts-and-planning/planning-tools/find-accommodation.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/plan your trip/planning tools/8.webp" alt="card image">
+              <span
+                class="p-link">Find accommodation</span>
+            </div>
+          </div>
+        </a>
+
+
+        <a href="https://www.australia.com/en/facts-and-planning/planning-tools/find-tours.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/plan your trip/planning tools/9.webp" alt="card image">
+              <span
+                class="p-link">Find tours</span>
+            </div>
+          </div>
+        </a>
+
+
+        <a href="https://www.australia.com/en/facts-and-planning/planning-tools/find-transportation.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/plan your trip/planning tools/10.webp" alt="card image">
+              <span
+                class="p-link">Find transport</span>
+            </div>
+          </div>
+        </a>
+
+
+        <a href="https://www.australia.com/en/facts-and-planning/about-australia/find-accredited-visitor-information-centres.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/plan your trip/planning tools/11.webp" alt="card image">
+              <span
+                class="p-link">Visitor information...</span>
+            </div>
+          </div>
+        </a>
+
+
+        <a href="https://www.australia.com/en/deals-and-travel-packages.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/plan your trip/planning tools/12.webp" alt="card image">
+              <span class="p-link">Deals and travel
+                packages</span>
+            </div>
+          </div>
+        </a>
+
+
+        <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+
+          <div class="flex-div ">
+            <a class="card-div" style="justify-content: center;">
+              <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                  alt="card image"></div>
+
+              <p>View more</p>
+            </a>
+          </div>
+          </a>
 
         </div>
       </div>
 
       <div class="tab-content" id="visas-and-entry" style="display:none;">
         <div class="cards">
+          
+          <a href="https://www.australia.com/en/facts-and-planning/visa-and-customs/australia-visa-and-entry-requirements-faqs.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/visas/1.webp" alt="card image">
-              <p>Visa and entry requirements FAQ</p>
+              <span
+                class="p-link">Visa and entry requirements...</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/facts-and-planning/visa-and-customs/australia-customs-and-biosecurity-faqs.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/visas/2.webp" alt="card image">
-              <p>Customs and biosecurity</p>
+              <span
+                class="p-link">Customs and biosecurity</sp>
             </div>
           </div>
+        </a>
 
+
+        <a href="https://www.australia.com/en/youth-travel/working-holiday-visa.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/visas/3.webp" alt="card image">
-              <p>Working Holiday Maker visas</p>
+              <span class="p-link">Working
+                Holiday Maker...</span>
             </div>
           </div>
+        </a>
+
+        <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+
+          <div class="flex-div ">
+            <a class="card-div" style="justify-content: center;">
+              <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                  alt="card image"></div>
+
+              <p>View more</p>
+            </a>
+          </div>
+          </a>
 
         </div>
       </div>
@@ -779,47 +1398,102 @@
 
       <div class="tab-content" id="about-australia" style="display:none;">
         <div class="cards">
+
+          <a href="https://www.australia.com/en/facts-and-planning/about-australia/key-facts-about-australia.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/about australia/1.webp" alt="card image">
-              <p>Facts about Australia</p>
+              <span
+                class="p-link">Facts about Australia</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/facts-and-planning/about-australia/key-facts-about-australia.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/about australia/2.webp" alt="card image">
-              <p>Experiences that will make you feel like an Aussie</p>
+              <span
+                class="p-link">Experiences that will make you...</span>
             </div>
           </div>
+        </a>
 
+
+        <a href="https://www.australia.com/en/facts-and-planning/about-australia/the-aussie-way-of-life.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/about australia/3.webp" alt="card image">
-              <p>People and culture</p>
+              <span
+                class="p-link">People and culture</span>
             </div>
           </div>
+        </a>
 
+
+        <a href="https://www.australia.com/en/facts-and-planning/health-and-safety/faq.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/about australia/4.webp" alt="card image">
-              <p>Weather</p>
+              <span
+                class="p-link">Weather</span>
             </div>
           </div>
+        </a>
 
+
+        <a href="https://www.australia.com/en/facts-and-planning/when-to-go/australias-seasons.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/about australia/5.webp" alt="card image">
-              <p>Seasons</p>
+              <span
+                class="p-link">Seasons</span>
             </div>
           </div>
+        </a>
 
+        
+        <a href="https://www.australia.com/en/facts-and-planning/about-australia/cities-states-and-territories.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/about australia/6.webp" alt="card image">
-              <p>Health and safety FAQ</p>
+              <span
+                class="p-link">Health and safety FAQ</sp>
             </div>
           </div>
+        </a>
+
+        <a href="https://www.australia.com/en/places.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/plan your trip/about australia/7.webp" alt="card image">
+              <span class="p-link">Cities, states & territories</span>
+            </div>
+          </div>
+        </a>
+
+
+        <a href="https://www.australia.com/en/facts-and-planning/health-and-safety/faq.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/plan your trip/about australia/8.webp" alt="card image">
+              <span class="p-link">Iconic
+                places and attractions</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+
+          <div class="flex-div ">
+            <a class="card-div" style="justify-content: center;">
+              <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                  alt="card image"></div>
+
+              <p>View more</p>
+            </a>
+          </div>
+          </a>
 
         </div>
       </div>
@@ -827,40 +1501,69 @@
 
       <div class="tab-content" id="when-to-go" style="display:none;">
         <div class="cards">
+          
+          <a href="https://www.australia.com/en/facts-and-planning/when-to-go/best-time-to-visit.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/when to go/1.webp" alt="card image">
-              <p>When is the best time to visit Australia?</p>
+              <span
+                class="p-link">When is the best time to...</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/things-to-do/seasonal-travel.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/when to go/2.webp" alt="card image">
-              <p>Seasonal travel</p>
+              <span class="p-link">Seasonal
+                travel</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/events/australias-events-calendar.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/when to go/3.webp" alt="card image">
-              <p>Events and festivals</p>
+              <span class="p-link">Events and
+                festivals</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/facts-and-planning/when-to-go/australian-school-holidays.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/when to go/4.webp" alt="card image">
-              <p>School holidays</p>
+              <span
+                class="p-link">School holidays</span>
             </div>
           </div>
+        </a>
 
+
+        <a href="https://www.australia.com/en/facts-and-planning/when-to-go/australian-public-holidays.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/when to go/5.webp" alt="card image">
-              <p>Public holidays</p>
+              <span
+                class="p-link">Public holidays</span>
             </div>
           </div>
+        </a>
+
+        <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+
+          <div class="flex-div ">
+            <a class="card-div" style="justify-content: center;">
+              <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                  alt="card image"></div>
+
+              <p>View more</p>
+            </a>
+          </div>
+          </a>
 
         </div>
       </div>
@@ -868,19 +1571,38 @@
 
       <div class="tab-content" id="getting-here" style="display:none;">
         <div class="cards">
+
+          <a href="https://www.australia.com/en/facts-and-planning/getting-around/how-to-get-to-australias-most-iconic-cities-and-destinations.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/getting here/1.webp" alt="card image">
-              <p>How to get to Australia's most iconic cities </p>
+              <span
+                class="p-link">How to get to Australia's... </span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/facts-and-planning/planning-tools/how-long-to-visit.html" style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/getting here/2.webp" alt="card image">
-              <p>How long do I need for my trip to Australia?</p>
+              <span
+                class="p-link">How long do I need for my...</span>
             </div>
           </div>
+        </a>
+
+
+        <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <a class="card-div" style="justify-content: center;">
+              <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                  alt="card image"></div>
+
+              <p>View more</p>
+            </a>
+          </div>
+        </a>
 
         </div>
       </div>
@@ -888,95 +1610,158 @@
 
       <div class="tab-content" id="getting-around" style="display:none;">
         <div class="cards">
+
+          <a href="https://www.australia.com/en/facts-and-planning/getting-around.html"  style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/getting around/1.webp" alt="card image">
-              <p>How to travel around Australia</p>
+              <span class="p-link">How to travel
+                around Australia</span>
             </div>
           </div>
+        </a>
 
+        <a href="https://www.australia.com/en/facts-and-planning/getting-around/driving-in-australia.html"  style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/getting around/2.webp" alt="card image">
-              <p>Guide to driving in Australia</p>
+              <span
+                class="p-link">Guide to driving in Australia</span>
             </div>
           </div>
+        </a>
 
-
+<a href="https://www.australia.com/en/facts-and-planning/getting-around/how-to-hire-a-car-or-campervan.html"  style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/getting around/3.webp" alt="card image">
-              <p>How to hire a car or campervan</p>
+              <span
+                class="p-link">How to hire a car or...</span>
             </div>
           </div>
+        </a>
 
 
+        <a href="https://www.australia.com/en/facts-and-planning/getting-around/family-road-trip.html"  style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/getting around/4.webp" alt="card image">
-              <p>How to plan a family road trip</p>
+              <span
+                class="p-link">How to plan a family road trip</span>
             </div>
           </div>
+        </a>
 
+
+        <a href="https://www.australia.com/en/facts-and-planning/getting-around/outback-road-trip.html"  style="color: #08476a;">
           <div class="flex-div ">
             <div class="card-div">
               <img src="./assets/cards/plan your trip/getting around/5.webp" alt="card image">
-              <p>How to plan an outback road trip</p>
+              <span
+                class="p-link">How to plan an outback road...</span>
             </div>
           </div>
+          </a>
+<a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <a class="card-div" style="justify-content: center;">
+              <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                  alt="card image"></div>
+
+              <p>View more</p>
+            </a>
+          </div>
+        </a>
 
         </div>
       </div>
     </div>
+
+
+
+
+    <div data-nav="Explore" style="display:none;">
+    </div>
   </div>
+
+
+
+
+
+
+
+
 
   <div class="mobile-div">
     <div class="dropdown-content-Inspired ">
       <div class="flex-div ">
-        <div class="flex-div ">
-          <div class="card-div">
-            <img src="./assets/cards/be inspired/1.webp" alt="card image">
-            <p>Australia Recommends 2024</p>
+
+        <a href="https://www.australia.com/en/travel-inspiration/australia-recommends-best-places-to-visit.html"
+          style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/be inspired/1.webp" alt="card image">
+              <span class="p-link">Australia Recommends 2024</span>
+            </div>
           </div>
-        </div>
-        <div class="flex-div ">
-          <div class="card-div">
-            <img src="./assets/cards/be inspired/2.webp" alt="card image">
-            <p>Come and Say G'day</p>
+        </a>
+
+        <a href="https://www.australia.com/en/travel-inspiration.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/be inspired/2.webp" alt="card image">
+              <span class="p-link">Come and Say G'day</span>
+            </div>
           </div>
-        </div>
-        <div class="flex-div ">
-          <div class="card-div">
-            <img src="./assets/cards/be inspired/3.webp" alt="card image">
-            <p>G'day, the short film</p>
+        </a>
+
+        <a href="https://www.australia.com/en/gday-the-short-film.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/be inspired/3.webp" alt="card image">
+              <span class="p-link">G'day, the short film</span>
+            </div>
           </div>
-        </div>
-        <div class="flex-div ">
-          <div class="card-div">
-            <img src="./assets/cards/be inspired/4.webp" alt="card image">
-            <p>Discover your Australia</p>
+        </a>
+
+        <a href="https://www.australia.com/en/discover-your-australia.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/be inspired/4.webp" alt="card image">
+              <span class="p-link">Discover your
+                Australia</spam>
+            </div>
           </div>
-        </div>
-        <div class="flex-div ">
-          <div class="card-div">
-            <img src="./assets/cards/be inspired/5.webp" alt="card image">
-            <p>Travel Videos</p>
+        </a>
+
+
+        <a href="https://www.australia.com/en/travel-inspiration/australia-travel-videos.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/be inspired/5.webp" alt="card image">
+              <span class="p-link">Travel
+                Videos</span>
+            </div>
           </div>
-        </div>
-        <div class="flex-div ">
-          <div class="card-div">
-            <img src="./assets/cards/be inspired/6.webp" alt="card image">
-            <p>Deals and offers</p>
+        </a>
+
+        <a href="https://www.australia.com/en/deals-and-travel-packages.html" style="color: #08476a;">
+          <div class="flex-div ">
+            <div class="card-div">
+              <img src="./assets/cards/be inspired/6.webp" alt="card image">
+              <span class="p-link">Deals and offers</span>
+            </div>
           </div>
-        </div>
+        </a>
+
       </div>
     </div>
     <div class="dropdown-content-Places ">
       <div class="tabs-container">
         <!-- <button class="nav-btn prev" onclick="scrollTabs('left')">&lt;</button> -->
 
-        <div class="tabs">
-          <div class="tab active" onclick="selectTab(event, 'citiesDeks')">Cities</div>
+        <div class="tabs" data-tab-type="desktop">
+          <div class="tab" onclick="selectTab(event, 'citiesDeks')">Cities</div>
           <div class="tab" onclick="selectTab(event, 'statesDeks')">States</div>
           <div class="tab" onclick="selectTab(event, 'beachesDeks')">Beaches</div>
           <div class="tab" onclick="selectTab(event, 'islandsDeks')">Islands</div>
@@ -991,330 +1776,765 @@
         </div> -->
       </div>
 
-      <div class="tab-content" id="citiesDeks">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/cities/1.webp" alt="card image">
-              <p>Sydney</p>
-            </div>
-          </div>
+      <div class="tab-content" id="citiesDeks" style="display:none;" data-tab-type="desktop">
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/cities/2.webp" alt="card image">
-              <p>Melbourne</p>
-            </div>
-          </div>
+        <div class="flex-div">
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/cities/3.webp" alt="card image">
-              <p>Brisbane</p>
+          <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-sydney.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/1.webp" alt="card image">
+                <span class="p-link">Sydney</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/cities/4.webp" alt="card image">
-              <p>Perth</p>
+          <a href="https://www.australia.com/en/places/melbourne-and-surrounds/guide-to-melbourne.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/2.webp" alt="card image">
+                <span class="p-link">Melbourne</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/cities/5.webp" alt="card image">
-              <p>Gold Coast</p>
+          <a href="https://www.australia.com/en/places/brisbane-and-surrounds/guide-to-brisbane.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/3.webp" alt="card image">
+                <span class="p-link">Brisbane</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/cities/6.webp" alt="card image">
-              <p>Adelaide</p>
+          <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-perth.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/4.webp" alt="card image">
+                <span class="p-link">Perth</span>
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/gold-coast-and-surrounds/guide-to-the-gold-coast.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/5.webp" alt="card image">
+                <span class="p-link">Gold Coast</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/adelaide-and-surrounds/guide-to-adelaide.html"
+            style="color:#08476a ;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/6.webp" alt="card image">
+                <span class="p-link">Adelaide</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/cairns-and-surrounds/guide-to-cairns.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/7.webp" alt="card image">
+                <span class="p-link">Cairns</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/darwin-and-surrounds/guide-to-darwin.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/8.webp" alt="card image">
+                <span class="p-link">Drawin</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/hobart-and-surrounds/guide-to-hobart.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/9.webp" alt="card image">
+                <span class="p-link">Hobart</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/canberra-and-surrounds/guide-to-canberra.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/cities/10.webp" alt="card image">
+                <span class="p-link">Canberra</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <span class="card-div" style="justify-content: center;">
+                <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                    alt="card image"></div>
+
+                <p>View more</p>
+                </sp>
+            </div>
+          </a>
+
         </div>
       </div>
 
-      <div class="tab-content" id="statesDeks" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/states/1.webp" alt="card image">
-              <p>Australian Capital Territory</p>
+      <div class="tab-content" id="statesDeks" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
+
+          <a href="https://www.australia.com/en/places/australian-capital-territory.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/1.webp" alt="card image">
+                <span class="p-link">Australian
+                  Capital Territory</sp>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/states/2.webp" alt="card image">
-              <p>New South Wales</p>
+
+
+          <a href="https://www.australia.com/en/places/new-south-wales.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/2.webp" alt="card image">
+                <span class="p-link">New South Wales</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/states/3.webp" alt="card image">
-              <p>Northern Territory</p>
+          <a href="https://www.australia.com/en/places/northern-territory.html " style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/3.webp" alt="card image">
+                <span class="p-link">Northern
+                  Territory</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/states/4.webp" alt="card image">
-              <p>Queensland</p>
+          <a href="https://www.australia.com/en/places/queensland.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/4.webp" alt="card image">
+                <span class="p-link">Queensland</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/states/5.webp" alt="card image">
-              <p>South Australia</p>
+          <a href="https://www.australia.com/en/places/south-australia.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/5.webp" alt="card image">
+                <span class="p-link">South Australia</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/states/6.webp" alt="card image">
-              <p>Tasmania</p>
+          <a href="https://www.australia.com/en/places/south-australia.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/6.webp" alt="card image">
+                <span class="p-link">Tasmania</span>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </a>
 
+          <a href=""></a>
 
-      <div class="tab-content" id="beachesDeks" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/beaches/1.webp" alt="card image">
-              <p>Bondi</p>
+          <a href="https://www.australia.com/en/places/tasmania.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/7.webp" alt="card image">
+                <span class="p-link">Victoria</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/beaches/2.webp" alt="card image">
-              <p>The Whitsundays</p>
+          <a href="https://www.australia.com/en/places/victoria.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/8.webp" alt="card image">
+                <span class="p-link">Western Australia</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/beaches/3.webp" alt="card image">
-              <p>Esperance</p>
+          <a href="https://www.australia.com/en/places/western-australia.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/states/9.webp" alt="card image">
+                <span class="p-link">External
+                  Territories</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/beaches/4.webp" alt="card image">
-              <p>Mornington Peninsula</p>
+          <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <span class="card-div" style="justify-content: center;">
+                <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                    alt="card image"></div>
+                <p>View more</p>
+              </span>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/beaches/5.webp" alt="card image">
-              <p>Noosa</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/beaches/6.webp" alt="card image">
-              <p>Jervis Bay</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="tab-content" id="islandsDeks" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/islands/1.webp" alt="card image">
-              <p>Kangaroo Island</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/islands/2.webp" alt="card image">
-              <p>Rottnest Island</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/islands/3.webp" alt="card image">
-              <p>K’gari</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/islands/4.webp" alt="card image">
-              <p>Hamilton Island</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/islands/5.webp" alt="card image">
-              <p>Lord Howe Island</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/islands/6.webp" alt="card image">
-              <p>Tiwi Islands</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="tab-content" id="countryDeks" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/country/1.webp" alt="card image">
-              <p>Margaret River</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/country/2.webp" alt="card image">
-              <p>Barossa Valley</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/country/3.webp" alt="card image">
-              <p>The Grampians</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/country/4.webp" alt="card image">
-              <p>Hunter Valley</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/country/5.webp" alt="card image">
-              <p>Bundaberg</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/country/6.webp" alt="card image">
-              <p>Daylesford</p>
-            </div>
-          </div>
         </div>
       </div>
 
 
-      <div class="tab-content" id="outbackDeks" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/outback/1.webp" alt="card image">
-              <p>Alice Springs</p>
-            </div>
-          </div>
+      <div class="tab-content" id="beachesDeks" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/outback/2.webp" alt="card image">
-              <p>Broome</p>
+          <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-bondi.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/1.webp" alt="card image">
+                <span class="p-link">Bondi</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/outback/3.webp" alt="card image">
-              <p>Uluru and Kata Tjuta</p>
-            </div>
-          </div>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/outback/4.webp" alt="card image">
-              <p>The Kimberley</p>
+          <a href="https://www.australia.com/en/places/whitsundays-and-surrounds/guide-to-the-whitsundays.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/2.webp" alt="card image">
+                <span class="p-link">The Whitsundays</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/outback/5.webp" alt="card image">
-              <p>Flinders Ranges</p>
+          <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-esperance.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/3.webp" alt="card image">
+                <span class="p-link">Esperance</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/outback/6.webp" alt="card image">
-              <p>Kakadu National Park</p>
+          <a href="https://www.australia.com/en/places/melbourne-and-surrounds/guide-to-the-mornington-peninsula.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/4.webp" alt="card image">
+                <span class="p-link">Mornington Peninsula</span>
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/brisbane-and-surrounds/guide-to-noosa.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/5.webp" alt="card image">
+                <span class="p-link">Noosa</span>
+              </div>
+            </div>
+          </a>
+
+
+          <a href="https://www.australia.com/en/places/canberra-and-surrounds/guide-to-jervis-bay.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/6.webp" alt="card image">
+                <span class="p-link">Jervis Bay</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/cairns-and-surrounds/guide-to-port-douglas.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/7.webp" alt="card image">
+                <span class="p-link">Port Douglas</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-byron-bay.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/8.webp" alt="card image">
+                <span class="p-link">Byron Bay</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-ningaloo-reef.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/9.webp" alt="card image">
+                <span class="p-link">Ningaloo Reef</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/whitsundays-and-surrounds/guide-to-airlie-beach.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/beaches/10.webp" alt="card image">
+                <span class="p-link">Airlie Beach</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <span class="card-div" style="justify-content: center;">
+                <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                    alt="card image"></div>
+                <p>View more</p>
+              </span>
+            </div>
+          </a>
+
+
         </div>
       </div>
 
 
-      <div class="tab-content" id="natureDeks" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/nature/1.webp" alt="card image">
-              <p>Great Barrier Reef</p>
-            </div>
-          </div>
+      <div class="tab-content" id="islandsDeks" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/nature/2.webp" alt="card image">
-              <p>Kangaroo Island</p>
+          <a href="https://www.australia.com/en/places/adelaide-and-surrounds/guide-to-kangaroo-island.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/islands/1.webp" alt="card image">
+                <span class="p-link">Kangaroo Island</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/nature/3.webp" alt="card image">
-              <p>Blue Mountains</p>
-            </div>
-          </div>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/nature/4.webp" alt="card image">
-              <p>Daintree Rainforest</p>
+          <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-rottnest-island.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/islands/2.webp" alt="card image">
+                <span class="p-link">Rottnest Island</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/nature/5.webp" alt="card image">
-              <p>Great Ocean Road</p>
+          <a href="https://www.australia.com/en/places/brisbane-and-surrounds/guide-to-kgari.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/islands/3.webp" alt="card image">
+                <span class="p-link">K’gari</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/places to go/nature/6.webp" alt="card image">
-              <p>Scenic Rim</p>
+          <a href="https://www.australia.com/en/places/whitsundays-and-surrounds/guide-to-hamilton-island.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/islands/4.webp" alt="card image">
+                <span class="p-link">Hamilton Island</span>
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-lord-howe-island.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/islands/5.webp" alt="card image">
+                <span class="p-link">Lord Howe Island</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/darwin-and-surrounds/guide-to-the-tiwi-islands.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/islands/6.webp" alt="card image">
+                <span class="p-link">Tiwi Islands</span>
+              </div>
+            </div>
+          </a>
+
+
+          <a href="https://www.australia.com/en/places/melbourne-and-surrounds/guide-to-phillip-island.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/islands/7.webp" alt="card image">
+                <span class="p-link">Phillip Island</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/whitsundays-and-surrounds/guide-to-the-whitsundays.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/islands/8.webp" alt="card image">
+                <span class="p-link">The Whitsundays</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/hobart-and-surrounds/guide-to-bruny-island.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/islands/9.webp" alt="card image">
+                <span class="p-link">Bruny Island</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <span class="card-div" style="justify-content: center;">
+                <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                    alt="card image"></div>
+
+                <p>View more</p>
+              </span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+
+      <div class="tab-content" id="countryDeks" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
+
+          <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-margaret-river.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/country/1.webp" alt="card image">
+                <span class="p-link">Margaret River</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-margaret-river.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/country/2.webp" alt="card image">
+                <span class="p-link">Barossa Valley</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/melbourne-and-surrounds/guide-to-the-grampians.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/country/3.webp" alt="card image">
+                <span class="p-link">The Grampians</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-the-hunter-valley.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/country/4.webp" alt="card image">
+                <span class="p-link">Hunter Valley</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/brisbane-and-surrounds/guide-to-bundaberg.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/country/5.webp" alt="card image">
+                <span class="p-link">Bundaberg</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/melbourne-and-surrounds/guide-to-daylesford-and-the-macedon-ranges.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/country/6.webp" alt="card image">
+                <span class="p-link">Daylesford</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/adelaide-and-surrounds/guide-to-mclaren-vale.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/country/7.webp" alt="card image">
+                <span class="p-link">McLaren Vale</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/brisbane-and-surrounds/guide-to-the-glass-house-mountains.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/country/8.webp" alt="card image">
+                <span class="p-link">Glass House Mountains</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-mudgee.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/country/9.webp" alt="card image">
+                <span class="p-link">Mudgee</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+
+      <div class="tab-content" id="outbackDeks" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
+
+          <a href="https://www.australia.com/en/places/alice-springs-and-surrounds/guide-to-alice-springs.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/outback/1.webp" alt="card image">
+                <span class="p-link">Alice Springs</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/broome-and-surrounds/guide-to-broome.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/outback/2.webp" alt="card image">
+                <span class="p-link">Broome</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/alice-springs-and-surrounds/guide-to-uluru-and-kata-tjuta.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/outback/3.webp" alt="card image">
+                <span class="p-link">Uluru and Kata Tjuta</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/broome-and-surrounds/guide-to-the-kimberley.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/outback/4.webp" alt="card image">
+                <span class="p-link">The Kimberley</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/adelaide-and-surrounds/guide-to-the-flinders-ranges.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/outback/5.webp" alt="card image">
+                <span class="p-link">Flinders Ranges</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/adelaide-and-surrounds/guide-to-the-eyre-peninsula.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/outback/6.webp" alt="card image">
+                <span class="p-link">Kakadu National Park</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-karijini-national-park.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/outback/7.webp" alt="card image">
+                <span class="p-link">Eyre Peninsula</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-karijini-national-park.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/outback/8.webp" alt="card image">
+                <span class="p-link">Karijini National Park</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/perth-and-surrounds/guide-to-monkey-mia.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/outback/9.webp" alt="card image">
+                <span class="p-link">Monkey Mia</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+
+      <div class="tab-content" id="natureDeks" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
+
+          <a href="https://www.australia.com/en/places/cairns-and-surrounds/guide-to-the-great-barrier-reef.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/nature/1.webp" alt="card image">
+                <span class="p-link">Great Barrier Reef</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/adelaide-and-surrounds/guide-to-kangaroo-island.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/nature/2.webp" alt="card image">
+                <span class="p-link">Kangaroo Island</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/sydney-and-surrounds/guide-to-the-blue-mountains.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/nature/3.webp" alt="card image">
+                <span class="p-link">Blue Mountains</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/cairns-and-surrounds/guide-to-the-daintree-rainforest.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/nature/4.webp" alt="card image">
+                <span class="p-link">Daintree Rainforest</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/melbourne-and-surrounds/guide-to-the-great-ocean-road.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/nature/5.webp" alt="card image">
+                <span class="p-link">Great Ocean Road</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/gold-coast-and-surrounds/guide-to-the-scenic-rim.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/nature/6.webp" alt="card image">
+                <span class="p-link">Scenic Rim</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/broome-and-surrounds/guide-to-purnululu-national-park.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/nature/7.webp" alt="card image">
+                <span class="p-link">Purnululu National Park</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/hobart-and-surrounds/guide-to-cradle-mountain-lake-st-clair-national-park.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/nature/8.webp" alt="card image">
+                <span class="p-link">Cradle Mountain-Lake St Clair National Park</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/darwin-and-surrounds/guide-to-litchfield-national-park.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/nature/9.webp" alt="card image">
+                <span class="p-link">Litchfield National Park</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places/hobart-and-surrounds/guide-to-freycinet.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/places to go/nature/10.webp" alt="card image">
+                <span class="p-link">Freycinet</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <span class="card-div" style="justify-content: center;">
+                <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                    alt="card image"></div>
+                <p>View more</p>
+              </span>
+            </div>
+          </a>
+
         </div>
       </div>
 
@@ -1324,7 +2544,7 @@
       <div class="tabs-container">
         <!-- <button class="nav-btn prev" onclick="scrollTabs('left')">&lt;</button> -->
 
-        <div class="tabs">
+        <div class="tabs " id="tabs-desk" data-tab-type="desktop">
           <div class="tab active" onclick="selectTab(event, 'culture2Desk')">Culture</div>
           <div class="tab" onclick="selectTab(event, 'adventure2Desk')">Adventure</div>
           <div class="tab" onclick="selectTab(event, 'nature2Desk')">Nature</div>
@@ -1339,180 +2559,241 @@
         </div> -->
       </div>
 
-      <div class="tab-content" id="culture2Desk">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/culture/1.webp" alt="card image">
-              <p>Aboriginal experiences</p>
-            </div>
-          </div>
+      <div class="tab-content" id="culture2Desk" data-tab-type="desktop">
+        <div class="flex-div">
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/culture/2.webp" alt="card image">
-              <p>Arts and culture</p>
+          <a href="https://www.australia.com/en/things-to-do/aboriginal-australia.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/culture/1.webp" alt="card image">
+                <span class="p-link">Aboriginal
+                  experiences</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/culture/3.webp" alt="card image">
-              <p>Festivals and events</p>
+          <a href="https://www.australia.com/en/things-to-do/arts-and-culture.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/culture/2.webp" alt="card image">
+                <span class="p-link">Arts and
+                  culture</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/culture/4.webp" alt="card image">
-              <p>Food and drink</p>
+          <a href="https://www.australia.com/en/events.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/culture/3.webp" alt="card image">
+                <span class="p-link">Festivals and events</span>
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a href="https://www.australia.com/en/things-to-do/food-and-drinks.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/culture/4.webp" alt="card image">
+                <span class="p-link">Food and drink</span>
+              </div>
+            </div>
+          </a>
+
 
         </div>
       </div>
 
-      <div class="tab-content" id="adventure2Desk" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/adventure/1.webp" alt="card image">
-              <p>Adventure and sports</p>
+      <div class="tab-content" id="adventure2Desk" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
+
+          <a href="https://www.australia.com/en/things-to-do/adventure-and-sports.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/adventure/1.webp" alt="card image">
+                <span class="p-link">Adventure and
+                  sports</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/adventure/2.webp" alt="card image">
-              <p>Walks and hikes</p>
+          <a href="https://www.australia.com/en/things-to-do/walks-and-hikes.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/adventure/2.webp" alt="card image">
+                <span class="p-link">Walks and
+                  hikes</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/adventure/3.webp" alt="card image">
-              <p>Road trips and drives</p>
+          <a href="https://www.australia.com/en/trips-and-itineraries/self-drive-itineraries.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/adventure/3.webp" alt="card image">
+                <span class="p-link">Road trips and drives</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-        </div>
-      </div>
-
-
-      <div class="tab-content" id="nature2Desk" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/nature/1.webp" alt="card image">
-              <p>Beaches and islands</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/nature/2.webp" alt="card image">
-              <p>Nature and national parks</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/nature/3.webp" alt="card image">
-              <p>Wildlife</p>
-            </div>
-          </div>
-
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/nature/4.webp" alt="card image">
-              <p>Eco-friendly travel</p>
-            </div>
-          </div>
 
         </div>
       </div>
 
 
-      <div class="tab-content" id="relaxation2Desk" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/relaxation/1.webp" alt="card image">
-              <p>Health and wellness</p>
-            </div>
-          </div>
+      <div class="tab-content" id="nature2Desk" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/relaxation/2.webp" alt="card image">
-              <p>Luxury</p>
+          <a href="https://www.australia.com/en/things-to-do/beaches-and-islands.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/nature/1.webp" alt="card image">
+                <span class="p-link">Beaches and
+                  islands</span>
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a href="https://www.australia.com/en/things-to-do/nature-and-national-parks.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/nature/2.webp" alt="card image">
+                <span class="p-link">Nature
+                  and national parks</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/things-to-do/wildlife.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/nature/3.webp" alt="card image">
+                <span class="p-link">Wildlife</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/things-to-do/sustainable-travel.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/nature/4.webp" alt="card image">
+                <span class="p-link">Eco-friendly
+                  travel</span>
+              </div>
+            </div>
+          </a>
 
         </div>
       </div>
 
 
-      <div class="tab-content" id="family2Desk" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/family/1.webp" alt="card image">
-              <p>Family travel</p>
-            </div>
-          </div>
+      <div class="tab-content" id="relaxation2Desk" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/family/2.webp" alt="card image">
-              <p>Family destinations</p>
+          <a href="https://www.australia.com/en/things-to-do/health-and-wellness-experiences.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/relaxation/1.webp" alt="card image">
+                <sapn class="p-link">Health and wellness</sapn>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/family/3.webp" alt="card image">
-              <p>Family road trips</p>
+          <a href="https://www.australia.com/en/things-to-do/luxury.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/relaxation/2.webp" alt="card image">
+                <span class="p-link">Luxury</span>
+              </div>
             </div>
-          </div>
+          </a>
 
         </div>
       </div>
 
 
-      <div class="tab-content" id="backpacking2Desk" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/backpacking/1.webp" alt="card image">
-              <p>Backpacking</p>
-            </div>
-          </div>
+      <div class="tab-content" id="family2Desk" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/backpacking/2.webp" alt="card image">
-              <p>Work and holiday</p>
+          <a href="https://www.australia.com/en/things-to-do/family.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/family/1.webp" alt="card image">
+                <span class="p-link">Family travel</sp>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/things to do/backpacking/3.webp" alt="card image">
-              <p>Visa FAQ</p>
+          <a href="https://www.australia.com/en/things-to-do/family/top-family-destinations-australia.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/family/2.webp" alt="card image">
+                <span class="p-link">Family destinations</span>
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a href="https://www.australia.com/en/things-to-do/family/best-family-road-trips-in-australia.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/family/3.webp" alt="card image">
+                <span class="p-link">Family road trips</>
+              </div>
+            </div>
+          </a>
+
+
+        </div>
+      </div>
+
+
+      <div class="tab-content" id="backpacking2Desk" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
+
+          <a href="https://www.australia.com/en/youth-travel/backpacking-in-australia.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/backpacking/1.webp" alt="card image">
+                <span class="p-link">Backpacking</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/youth-travel/work-and-volunteer-in-australia.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/backpacking/2.webp" alt="card image">
+                <span class="p-link">Work and holiday</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/youth-travel/working-holiday-visa/faq.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/things to do/backpacking/3.webp" alt="card image">
+                <span class="p-link">Visa
+                  FAQ</span>
+              </div>
+            </div>
+          </a>
+
 
         </div>
       </div>
 
     </div>
-    <div class="dropdown-content-Plan"  >
+    <div class="dropdown-content-Plan">
       <div class="tabs-container">
         <!-- <button class="nav-btn prev" onclick="scrollTabs('left')">&lt;</button> -->
 
-        <div class="tabs">
-          <div class="tab active" onclick="selectTab(event, 'planning-toolsDesk')">Planning tools</div>
+        <div class="tabs" id="tabs-desk" data-tab-type="desktop">
+          <div class="tab" onclick="selectTab(event, 'planning-toolsDesk')">Planning tools</div>
           <div class="tab" onclick="selectTab(event, 'visas-and-entryDesk')">Visas and entry</div>
           <div class="tab" onclick="selectTab(event, 'about-australiaDesk')">About australia</div>
           <div class="tab" onclick="selectTab(event, 'when-to-goDesk')">When to go</div>
@@ -1526,227 +2807,457 @@
         </div> -->
       </div>
 
-      <div class="tab-content" id="planning-toolsDesk">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/planning tools/1.webp" alt="card image">
-              <p>Beginner's guide</p>
-            </div>
-          </div>
+      <div class="tab-content" id="planning-toolsDesk" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/planning tools/2.webp" alt="card image">
-              <p>Accessible travel</p>
+          <a href="https://www.australia.com/en/facts-and-planning/beginners-guide-to-australia.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/planning tools/1.webp" alt="card image">
+                <span class="p-link">Beginner's guide</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/planning tools/3.webp" alt="card image">
-              <p>Planning tips</p>
+          <a href="https://www.australia.com/en/facts-and-planning/getting-around/accessible-travel-in-australia.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/planning tools/2.webp" alt="card image">
+                <span class="p-link">Accessible travel</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/planning tools/4.webp" alt="card image">
-              <p>Trip planner</p>
+          <a href="https://www.australia.com/en/facts-and-planning/getting-to-australia/australia-trip-planner-tools-and-tips.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/planning tools/3.webp" alt="card image">
+                <span class="p-link">Planning tips</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/planning tools/5.webp" alt="card image">
-              <p>Australian budget guide</p>
+          <a href="https://www.australia.com/en/trip-planner.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/planning tools/4.webp" alt="card image">
+                <span class="p-link">Trip planner</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/planning tools/6.webp" alt="card image">
-              <p>Itinerary planner</p>
+          <a href="https://www.australia.com/en/facts-and-planning/about-australia/australia-on-budget.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/planning tools/5.webp" alt="card image">
+                <span class="p-link">Australian budget guide</span>
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a href="https://www.australia.com/en/trips-and-itineraries.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/planning tools/6.webp" alt="card image">
+                <span class="p-link">Itinerary planner</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/facts-and-planning/planning-tools/find-a-travel-agent.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/planning tools/7.webp" alt="card image">
+                <span class="p-link">Find a travel agent</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/facts-and-planning/planning-tools/find-accommodation.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/planning tools/8.webp" alt="card image">
+                <span class="p-link">Find accommodation</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/facts-and-planning/planning-tools/find-tours.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/planning tools/9.webp" alt="card image">
+                <span class="p-link">Find tours</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/facts-and-planning/planning-tools/find-transportation.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/planning tools/10.webp" alt="card image">
+                <span class="p-link">Find transport</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/facts-and-planning/about-australia/find-accredited-visitor-information-centres.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/planning tools/11.webp" alt="card image">
+                <span class="p-link">Visitor information centres</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/deals-and-travel-packages.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/planning tools/12.webp" alt="card image">
+                <span class="p-link">Deals and travel
+                  packages</span>
+              </div>
+            </div>
+          </a>
+
+
+          <a href="https://www.australia.com/en-in/places.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <span class="card-div" style="justify-content: center;">
+                <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                    alt="card image"></div>
+
+                <p>View more</p>
+              </span>
+            </div>
+          </a>
 
         </div>
       </div>
 
-      <div class="tab-content" id="visas-and-entryDesk" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/visas/1.webp" alt="card image">
-              <p>Visa and entry requirements FAQ</p>
-            </div>
-          </div>
+      <div class="tab-content" id="visas-and-entryDesk" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/visas/2.webp" alt="card image">
-              <p>Customs and biosecurity</p>
+          <a href="https://www.australia.com/en/facts-and-planning/visa-and-customs/australia-visa-and-entry-requirements-faqs.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/visas/1.webp" alt="card image">
+                <span class="p-link">Visa and entry requirements FAQ</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/visas/3.webp" alt="card image">
-              <p>Working Holiday Maker visas</p>
+          <a href="https://www.australia.com/en/facts-and-planning/visa-and-customs/australia-customs-and-biosecurity-faqs.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/visas/2.webp" alt="card image">
+                <span class="p-link">Customs and biosecurity</span>
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a href="https://www.australia.com/en/youth-travel/working-holiday-visa.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/visas/3.webp" alt="card image">
+                <span class="p-link">Working
+                  Holiday Maker visas</span>
+              </div>
+            </div>
+          </a>
+
+
+          <a href="https://www.australia.com/en-in/facts-and-planning.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <span class="card-div" style="justify-content: center;">
+                <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                    alt="card image"></div>
+                <p>View more</p>
+              </span>
+            </div>
+          </a>
 
         </div>
       </div>
 
 
-      <div class="tab-content" id="about-australiaDesk" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/about australia/1.webp" alt="card image">
-              <p>Facts about Australia</p>
-            </div>
-          </div>
+      <div class="tab-content" id="about-australiaDesk" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/about australia/2.webp" alt="card image">
-              <p>Experiences that will make you feel like an Aussie</p>
+          <a href="https://www.australia.com/en/facts-and-planning/about-australia/key-facts-about-australia.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/about australia/1.webp" alt="card image">
+                <span class="p-link">Facts about Australia</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/about australia/3.webp" alt="card image">
-              <p>People and culture</p>
+          <a href="https://www.australia.com/en/facts-and-planning/about-australia/everyday-aussie-things-to-try.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/about australia/2.webp" alt="card image">
+                <span class="p-link">Experiences that will make you feel like an Aussie</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/about australia/4.webp" alt="card image">
-              <p>Weather</p>
+          <a href="https://www.australia.com/en/facts-and-planning/about-australia/the-aussie-way-of-life.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/about australia/3.webp" alt="card image">
+                <span class="p-link">People and culture</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/about australia/5.webp" alt="card image">
-              <p>Seasons</p>
+          <a href="https://www.australia.com/en/facts-and-planning/health-and-safety/faq.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/about australia/4.webp" alt="card image">
+                <span class="p-link">Weather</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/about australia/6.webp" alt="card image">
-              <p>Health and safety FAQ</p>
+          <a href="https://www.australia.com/en/facts-and-planning/weather-in-australia.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/about australia/5.webp" alt="card image">
+                <span class="p-link">Seasons</span>
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a href="https://www.australia.com/en/facts-and-planning/about-australia/cities-states-and-territories.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/about australia/6.webp" alt="card image">
+                <span class="p-link">Health and safety FAQ</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/facts-and-planning/about-australia/cities-states-and-territories.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/about australia/7.webp" alt="card image">
+                <span class="p-link">Cities, states & territories</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en/places.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/about australia/8.webp" alt="card image">
+                <span href="https://www.australia.com/en/places.html" class="p-link">Iconic places and
+                  attractions</span>
+              </div>
+            </div>
+          </a>
+
+
+          <a href="https://www.australia.com/en-in/facts-and-planning.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <span class="card-div" style="justify-content: center;">
+                <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                    alt="card image"></div>
+                <p>View more</p>
+              </span>
+            </div>
+          </a>
 
         </div>
       </div>
 
 
-      <div class="tab-content" id="when-to-goDesk" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/when to go/1.webp" alt="card image">
-              <p>When is the best time to visit Australia?</p>
-            </div>
-          </div>
+      <div class="tab-content" id="when-to-goDesk" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/when to go/2.webp" alt="card image">
-              <p>Seasonal travel</p>
+          <a href="https://www.australia.com/en/facts-and-planning/when-to-go/best-time-to-visit.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/when to go/1.webp" alt="card image">
+                <span class="p-link">When is the best time to visit Australia?</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/when to go/3.webp" alt="card image">
-              <p>Events and festivals</p>
+          <a href="https://www.australia.com/en/things-to-do/seasonal-travel.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/when to go/2.webp" alt="card image">
+                <span class="p-link">Seasonal
+                  travel</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/when to go/4.webp" alt="card image">
-              <p>School holidays</p>
+          <a href="https://www.australia.com/en/events/australias-events-calendar.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/when to go/3.webp" alt="card image">
+                <span class="p-link">Events and
+                  festivals</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/when to go/5.webp" alt="card image">
-              <p>Public holidays</p>
+          <a href="https://www.australia.com/en/facts-and-planning/when-to-go/australian-school-holidays.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/when to go/4.webp" alt="card image">
+                <span class="p-link">School holidays</span>
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a href="https://www.australia.com/en/facts-and-planning/when-to-go/australian-public-holidays.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/when to go/5.webp" alt="card image">
+                <span class="p-link">Public holidays</span>
+              </div>
+            </div>
+          </a>
+
+
+          <a href="https://www.australia.com/en-in/facts-and-planning.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <span class="card-div" style="justify-content: center;">
+                <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                    alt="card image"></div>
+                <p>View more</p>
+              </span>
+            </div>
+          </a>
 
         </div>
       </div>
 
 
-      <div class="tab-content" id="getting-hereDesk" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/getting here/1.webp" alt="card image">
-              <p>How to get to Australia's most iconic cities </p>
-            </div>
-          </div>
+      <div class="tab-content" id="getting-hereDesk" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/getting here/2.webp" alt="card image">
-              <p>How long do I need for my trip to Australia?</p>
+          <a href="https://www.australia.com/en/facts-and-planning/getting-around/how-to-get-to-australias-most-iconic-cities-and-destinations.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/getting here/1.webp" alt="card image">
+                <span class="p-link">How to get to Australia's most iconic cities </span>
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a href="https://www.australia.com/en/facts-and-planning/planning-tools/how-long-to-visit.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/getting here/2.webp" alt="card image">
+                <span class="p-link">How long do I need for my trip to Australia?</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.australia.com/en-in/facts-and-planning.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <span class="card-div" style="justify-content: center;">
+                <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                    alt="card image"></div>
+                <p>View more</p>
+              </span>
+            </div>
+          </a>
+
 
         </div>
       </div>
 
 
-      <div class="tab-content" id="getting-aroundDesk" style="display:none;">
-        <div class="cards">
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/getting around/1.webp" alt="card image">
-              <p>How to travel around Australia</p>
+      <div class="tab-content" id="getting-aroundDesk" style="display:none;" data-tab-type="desktop">
+        <div class="flex-div">
+
+          <a href="https://www.australia.com/en/facts-and-planning/getting-around.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/getting around/1.webp" alt="card image">
+                <span class="p-link">How to travel
+                  around Australia</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/getting around/2.webp" alt="card image">
-              <p>Guide to driving in Australia</p>
+          <a href="https://www.australia.com/en/facts-and-planning/getting-around/driving-in-australia.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/getting around/2.webp" alt="card image">
+                <span class="p-link">Guide to driving in Australia</span>
+              </div>
             </div>
-          </div>
+          </a>
 
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/getting around/3.webp" alt="card image">
-              <p>How to hire a car or campervan</p>
+          <a href="https://www.australia.com/en/facts-and-planning/getting-around/how-to-hire-a-car-or-campervan.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/getting around/3.webp" alt="card image">
+                <span class="p-link">How to hire a car or campervan</span>
+              </div>
             </div>
-          </div>
+          </a>
 
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/getting around/4.webp" alt="card image">
-              <p>How to plan a family road trip</p>
+          <a href="https://www.australia.com/en/facts-and-planning/getting-around/family-road-trip.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/getting around/4.webp" alt="card image">
+                <span class="p-link">How to plan a family road trip</span>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="flex-div ">
-            <div class="card-div">
-              <img src="./assets/cards/plan your trip/getting around/5.webp" alt="card image">
-              <p>How to plan an outback road trip</p>
+          <a href="https://www.australia.com/en/facts-and-planning/getting-around/outback-road-trip.html"
+            style="color: #08476a;">
+            <div class="flex-div ">
+              <div class="card-div">
+                <img src="./assets/cards/plan your trip/getting around/5.webp" alt="card image">
+                <span class="p-link">How to plan an outback road trip</span>
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a href="https://www.australia.com/en-in/facts-and-planning.html" style="color: #08476a;">
+            <div class="flex-div ">
+              <span class="card-div" style="justify-content: center;">
+                <div class="arrow-img-prent"> <img src="./assets/dt-icon-arrow-right.svg" class="arrow-img"
+                    alt="card image"></div>
+                <p>View more</p>
+              </span>
+            </div>
+          </a>
+
 
         </div>
       </div>

@@ -1,15 +1,13 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     // Get all the navigation items
     const inspiredBtn = document.getElementById('inspiredBtn');
     const placesBtn = document.getElementById('placesBtn');
     const thingsBtn = document.getElementById('thingsBtn');
     const planBtn = document.getElementById('planBtn');
+    const downIcon = document.querySelectorAll('.down-icon');
     const headDivBtns = document.querySelectorAll('.heads-div button')
     const backBtn = document.getElementById('backBtn');
     const closeIcon = document.getElementById('closeIcon');
-
-
-
 
 
 
@@ -28,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         backBtn.style.display = "none"
         closeIcon.style.display = "block"
+        document.querySelector(`[data-nav] .tabs`)
     })
 
     headDivBtns.forEach((btn) => {
@@ -39,11 +38,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const attr = e.target.dataset.btnNav
             const cardsDiv = document.querySelector(`[data-nav="${attr}"]`);
-            console.log(cardsDiv);
             navigationScreen.classList.add('show')
             cardsDiv.style.display = 'flex'
             backBtn.style.display = "block"
             closeIcon.style.display = "none"
+
+            const tabContainer = cardsDiv.querySelector('.tabs');
+
+            if(tabContainer) {
+                tabContainer.firstElementChild.classList.add('active');
+                cardsDiv.querySelector('.tab-content').style.display = 'block'
+            }
+
+           
         })
     })
 
@@ -54,74 +61,107 @@ document.addEventListener('DOMContentLoaded', function () {
         thingsContent.style.display = 'none';
         planContent.style.display = 'none';
 
+        const tabSections = document.querySelectorAll('[data-tab-type="desktop"].tabs');
 
+        tabSections.forEach(el => {
+            el.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active')
+            })
+        })
+        document.querySelectorAll('[data-tab-type="desktop"].tab-content').forEach(el => {
+            el.style.display = 'none'
+        })
     }
 
     // Function to toggle dropdown visibility
     function toggleDropdown(btn, content) {
-        // Toggle display of the dropdown content
+        document.querySelectorAll('.heads').forEach(head => {
+            head.style.fontWeight = '400';
+            head.firstElementChild.style.transform ="rotate(0deg)"
+        })
         if (content.style.display === 'block') {
             content.style.display = 'none';
+            btn.firstElementChild.style.transform ="rotate(0deg)"
+            btn.style.fontWeight = '400'
         } else {
-            hideAllDropdowns(); // Assuming this function exists to hide other dropdowns
+            hideAllDropdowns();
+            
             content.style.display = 'block';
-        }
 
-        // Toggle font weight of the button
-        if (btn.style.fontWeight === 'bold') {
-            btn.style.fontWeight = 'normal';
-        } else {
-            btn.style.fontWeight = 'bold';
-        }
-
-        // Toggle rotation of the arrow icon
-        const img = btn.querySelector('.arrow-up-nav'); // Assuming arrow-up-nav is a class of the arrow icon
-
-        if (img) {
-            // Check the current rotation angle using transform property
-            const transformValue = img.style.transform;
-            if (!transformValue || transformValue === "rotate(0deg)") {
-                img.style.transform = "rotate(180deg)";
+            const tabSection = content.querySelector('.tabs');
+            console.log(tabSection);
+            if (tabSection) {
+                tabSection.firstElementChild.classList.add('active');
+                content.querySelector('.tab-content').style.display = 'block'
             }
-            else {
-                img.style.transform = "rotate(0deg)";
-            }
+
+            btn.firstElementChild.style.transform ="rotate(180deg)"
+            btn.style.fontWeight = '600'
         }
     }
 
-
-    // change fontweight before click nav items
-
-    // rutate arrow icon nav
-
-
-
-
-
-
-
-
     // Event listeners for each navigation item
-    inspiredBtn.addEventListener('click', function () {
+    inspiredBtn.addEventListener('click', function() {
+        
         toggleDropdown(inspiredBtn, inspiredContent);
+        // inspiredBtn.firstElementChild.style.transform ="rotate(180deg)"
+        // planBtn.firstElementChild.style.transform ="rotate(0deg)"
+        // thingsBtn.firstElementChild.style.transform ="rotate(0deg)"
+        // placesBtn.firstElementChild.style.transform ="rotate(0deg)"
+        
+        // inspiredBtn.style.fontWeight = '600'
+        // planBtn.style.fontWeight = '400'
+        // thingsBtn.style.fontWeight = '400'
+        // placesBtn.style.fontWeight = '400'
     });
 
-    placesBtn.addEventListener('click', function () {
+    placesBtn.addEventListener('click', function() {
         toggleDropdown(placesBtn, placesContent);
+        // inspiredBtn.firstElementChild.style.transform ="rotate(0deg)"
+        // planBtn.firstElementChild.style.transform ="rotate(0deg)"
+        // thingsBtn.firstElementChild.style.transform ="rotate(0deg)"
+        // placesBtn.firstElementChild.style.transform ="rotate(180deg)"
+
+
+        // placesBtn.style.fontWeight = '600'
+        // planBtn.style.fontWeight = '400'
+        // thingsBtn.style.fontWeight = '400'
+        // inspiredBtn.style.fontWeight = '400'
     });
 
-    thingsBtn.addEventListener('click', function () {
+    thingsBtn.addEventListener('click', function() {
         toggleDropdown(thingsBtn, thingsContent);
+        // inspiredBtn.firstElementChild.style.transform ="rotate(0deg)"
+        // planBtn.firstElementChild.style.transform ="rotate(0deg)"
+        // thingsBtn.firstElementChild.style.transform ="rotate(180deg)"
+        // placesBtn.firstElementChild.style.transform ="rotate(0deg)"
+
+
+        // thingsBtn.style.fontWeight = '600'
+        // planBtn.style.fontWeight = '400'
+        // placesBtn.style.fontWeight = '400'
+        // inspiredBtn.style.fontWeight = '400'
     });
 
-    planBtn.addEventListener('click', function () {
+    planBtn.addEventListener('click', function() {
         toggleDropdown(planBtn, planContent);
+        // inspiredBtn.firstElementChild.style.transform ="rotate(0deg)"
+        // planBtn.firstElementChild.style.transform ="rotate(180deg)"
+        // thingsBtn.firstElementChild.style.transform ="rotate(0deg)"
+        // placesBtn.firstElementChild.style.transform ="rotate(0deg)"
+
+
+        // planBtn.style.fontWeight = '600'
+        // thingsBtn.style.fontWeight = '400'
+        // placesBtn.style.fontWeight = '400'
+        // inspiredBtn.style.fontWeight = '400'
     });
 
     // Clicking anywhere outside the nav or dropdowns should close all dropdowns
-    document.addEventListener('click', function (event) {
+    document.addEventListener('click', function(event) {
         const isNavClick = event.target.closest('.nav');
         const isDropdownContentClick = event.target.closest('.dropdown-content-Inspired, .dropdown-content-Places, .dropdown-content-Things, .dropdown-content-Plan');
+       
 
         if (!isNavClick && !isDropdownContentClick) {
             hideAllDropdowns();
@@ -143,11 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
             hamburgerIcon.style.display = 'none';
             closeIcon.style.display = 'block';
         }
-
-
-
     }
-
 
     // Event listeners for hamburger and close icons
     hamburgerIcon.addEventListener('click', toggleResponsiveMenu);
@@ -187,76 +223,24 @@ function selectTab(event, tabId) {
 
 // JavaScript for tab navigation scrolling
 function scrollTabs(direction) {
-    const tabsContainer = document.querySelector('.tabs');
-    const scrollAmount = 100; // Adjust as needed
+    const tabsContainers = document.querySelectorAll('.tabs');
+    tabsContainers.forEach((tabContainer) => {
 
-    if (direction === 'left') {
-        tabsContainer.scrollBy({
+        const scrollAmount = 100; // Adjust as needed
+        
+        if (direction === 'left') {
+            tabContainer.scrollBy({
             left: -scrollAmount,
             behavior: 'smooth'
         });
     } else if (direction === 'right') {
-        tabsContainer.scrollBy({
+        tabContainer.scrollBy({
             left: scrollAmount,
             behavior: 'smooth'
         });
     }
-
-    // search input
+})
 }
-
-
-// Open Modal start
-const openBtn = document.querySelector(".open-modal-btn");
-const modal = document.querySelector(".modal-overlay");
-const closeBtn = document.querySelector(".close-modal-btn");
-
-function openModal() {
-    modal.classList.remove("hide");
-}
-
-function closeModal(e, clickedOutside) {
-    if (clickedOutside) {
-        if (e.target.classList.contains("modal-overlay"))
-            modal.classList.add("hide");
-    } else modal.classList.add("hide");
-}
-
-openBtn.addEventListener("click", openModal);
-modal.addEventListener("click", (e) => closeModal(e, true));
-closeBtn.addEventListener("click", closeModal);
-
-// Open Modal end
-
-
-// respinsive modal 
-// Get the modal
-var ebModal = document.getElementById("mySizeChartModal");
-
-// Get the button that opens the modal
-var ebBtn = document.getElementById("mySizeChart");
-
-// Get the <span> element that closes the modal
-var ebSpan = document.getElementsByClassName("ebcf_close")[0];
-
-// When the user clicks the button, open the modal
-ebBtn.onclick = function () {
-    ebModal.style.display = "block";
-};
-
-// When the user clicks on <span> (x), close the modal
-ebSpan.onclick = function () {
-    ebModal.style.display = "none";
-};
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == ebModal) {
-        ebModal.style.display = "none";
-    }
-};
-
-// end
 
 
 
